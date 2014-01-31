@@ -1,7 +1,7 @@
 SCREPL
 ======
 
-A pluggable command line scraper with REPL support.
+A pluggable command line based scraper with REPL support.
 
 [![npm install -g screpl](https://nodei.co/npm/screpl.png)](https://nodei.co/npm/screpl/)
 
