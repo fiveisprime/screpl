@@ -1,46 +1,52 @@
 <!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Screpl by fiveisprime</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
+  </head>
+  <body>
 
-  <title>Screpl</title>
-  <meta name="description" content="A pluggable command line based scraper with REPL support.">
+      <header>
+        <h1>Screpl</h1>
+        <p>A pluggable command line based scraper with REPL support.</p>
+      </header>
 
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+      <div id="banner">
+        <span id="logo"></span>
 
-</head>
-
-<body>
-
-  <div class="wrapper">
-    <header>
-      <h1 class="title">Screpl</h1>
-    </header>
-    <div id="container">
-      <p class="tagline">A pluggable command line based scraper with REPL support.</p>
-      <div id="main" role="main">
-        <div class="download-bar">
-        <div class="inner">
-          <a href="https://github.com/fiveisprime/screpl/tarball/master" class="download-button tar"><span>Download</span></a>
-          <a href="https://github.com/fiveisprime/screpl/zipball/master" class="download-button zip"><span>Download</span></a>
-          <a href="https://github.com/fiveisprime/screpl" class="code">View Screpl on GitHub</a>
+        <a href="https://github.com/fiveisprime/screpl" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/fiveisprime/screpl/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/fiveisprime/screpl/tarball/master" class="button">TAR</a></li>
+          </ul>
         </div>
-        <span class="blc"></span><span class="trc"></span>
-        </div>
-        <article class="markdown-body">
-          <p><a href="https://nodei.co/npm/screpl/"><img src="https://nodei.co/npm/screpl.png" alt="npm install -g screpl"></a></p>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<p><a href="https://nodei.co/npm/screpl/"><img src="https://nodei.co/npm/screpl.png" alt="npm install -g screpl"></a></p>
 
 <p>Pass a URL to SCREPL then use the <code>$</code> variable as a jQuery object.</p>
 
-<pre><code>Usage: screpl &lt;url&gt;
+<pre lang="shell"><code>Usage: screpl &lt;url&gt;
 
 Options:
 
@@ -54,16 +60,40 @@ Options:
 <h1>
 <a name="plugins" class="anchor" href="#plugins"><span class="octicon octicon-link"></span></a>Plugins</h1>
 
-<p>Check out the plugin example in the examples directory. Require plugins using
-the <code>--require</code> option.</p>
+<p>Check out the plugin example in the examples directory.</p>
 
-<pre><code>$ screpl http://example.com --require examples/plugin.js
+<p>Plugins are node modules that expose a function which accepts the REPL context.
+Attach variables and functions to the context to make them accessible at
+run-time.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="nx">context</span><span class="p">.</span><span class="nx">getText</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">//</span>
+    <span class="c1">// Access the jQuery object from within the plugin.</span>
+    <span class="c1">//</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">'p'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">out</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">text</span><span class="p">());</span>
+    <span class="p">});</span>
+
+    <span class="c1">//</span>
+    <span class="c1">// The return value will be written to standard out.</span>
+    <span class="c1">//</span>
+    <span class="k">return</span> <span class="nx">out</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">' '</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>Require your plugin using the <code>--require</code> option.</p>
+
+<pre lang="shell"><code>$ screpl http://example.com --require plugin.js
 
   request loaded with 200
   use the variable `$` to access the result
 
 &gt; getText()
-&gt; links.text()
+'\nWelcome to exmaple.com.\nChances...'
 </code></pre>
 
 <p><strong>Variables and functions exposed through plugins will autocomplete.</strong></p>
@@ -84,26 +114,13 @@ INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
 LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.</p>
-        </article>
-      </div>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/fiveisprime">fiveisprime</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
     </div>
-    <footer>
-      <div class="owner">
-      <p><a href="https://github.com/fiveisprime" class="avatar"><img src="https://0.gravatar.com/avatar/04793947856f3ff03b9a80bad0f5dd8d?d=https%3A%2F%2Fidenticons.github.com%2F20b05684e932dd97c3cdfbf88ea83b90.png&amp;r=x&amp;s=60" width="48" height="48"/></a> <a href="https://github.com/fiveisprime">fiveisprime</a> maintains <a href="https://github.com/fiveisprime/screpl">Screpl</a></p>
-
-
-      </div>
-      <div class="creds">
-        <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br/>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
-      </div>
-    </footer>
-  </div>
-  <div class="current-section">
-    <a href="#top">Scroll to top</a>
-    <a href="https://github.com/fiveisprime/screpl/tarball/master" class="tar">tar</a><a href="https://github.com/fiveisprime/screpl/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
-    <p class="name"></p>
-  </div>
-
-  
-</body>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
 </html>
