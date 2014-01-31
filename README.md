@@ -9,28 +9,57 @@ A pluggable command line based scraper with REPL support.
 
 Pass a URL to SCREPL then use the `$` variable as a jQuery object.
 
-    Usage: screpl <url>
+```shell
+Usage: screpl <url>
 
-    Options:
+Options:
 
-      -h, --help              output usage information
-      -V, --version           output the version number
-      -r, --require <module>  require a plugin module
+  -h, --help              output usage information
+  -V, --version           output the version number
+  -r, --require <module>  require a plugin module
+```
 
 ![Demo](https://dl.dropboxusercontent.com/u/48325037/screpl-demo.gif)
 
 # Plugins
 
-Check out the plugin example in the examples directory. Require plugins using
-the `--require` option.
+Check out the plugin example in the examples directory.
 
-    $ screpl http://example.com --require examples/plugin.js
+Plugins are node modules that expose a function that accepts the REPL context.
+Attach variables and functions to the context to make them accessible at
+run-time.
 
-      request loaded with 200
-      use the variable `$` to access the result
+```javascript
+module.exports = function(context) {
 
-    > getText()
-    > links.text()
+  context.getText = function() {
+
+    //
+    // Access the jQuery object from within the plugin.
+    //
+    context.$('p').each(function() {
+      out.push(this.text());
+    });
+
+    //
+    // The return value will be written to standard out.
+    //
+    return out.join(' ');
+  };
+};
+```
+
+Require your plugin using the `--require` option.
+
+```shell
+$ screpl http://example.com --require plugin.js
+
+  request loaded with 200
+  use the variable `$` to access the result
+
+> getText()
+'\nWelcome to exmaple.com.\nChances...'
+```
 
 **Variables and functions exposed through plugins will autocomplete.**
 

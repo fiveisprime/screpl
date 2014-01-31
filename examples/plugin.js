@@ -11,7 +11,7 @@ module.exports = function(context) {
   context.getText = function() {
 
     //
-    // Access the JQuery object from within the plugin.
+    // Access the jQuery object from within the plugin.
     //
     context.$('p').each(function() {
       out.push(this.text());
