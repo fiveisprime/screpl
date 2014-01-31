@@ -15,6 +15,8 @@ A pluggable command line scraper with REPL support.
 
 Pass a URL to SCREPL then use the `$` variable as a JQuery object.
 
+![Demo](images/demo.gif)
+
     $ screpl http://example.com --require examples/plugin.js
 
       request loaded with 200
