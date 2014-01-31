@@ -19,20 +19,6 @@ Pass a URL to SCREPL then use the `$` variable as a jQuery object.
 
 ![Demo](https://dl.dropboxusercontent.com/u/48325037/screpl-demo.gif)
 
-    $ screpl http://example.com --require examples/plugin.js
-
-      request loaded with 200
-      use the variable `$` to access the result
-
-    > $('body').html()
-    '\n<div>\n    <h1>Example Domain</h1>\n    <p>This domain is established to
-    be used for illustrative examples in documents. You may use this\n
-    domain in examples without prior coordination or asking for permission.
-    </p>\n    <p><a href="http://www.iana.org/domains/example">More
-    information...</a></p>\n</div>\n'
-    >
-
-
 # Plugins
 
 Check out the plugin example in the examples directory. Require plugins using
