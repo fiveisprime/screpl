@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Screpl by fiveisprime</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/fiveisprime/screpl">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/fiveisprime/screpl/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/fiveisprime/screpl/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Screpl</h1>
+          <p>A pluggable command line scraper with REPL support.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/fiveisprime">fiveisprime</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a name="screpl" class="anchor" href="#screpl"><span class="octicon octicon-link"></span></a>SCREPL</h1>
+
+<p>A pluggable command line scraper with REPL support.</p>
+
+<h1>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<pre><code>Usage: screpl &lt;url&gt;
+
+Options:
+
+  -h, --help              output usage information
+  -V, --version           output the version number
+  -r, --require &lt;module&gt;  require a plugin module
+</code></pre>
+
+<p>Pass a URL to SCREPL then use the <code>$</code> variable as a JQuery object.</p>
+
+<p><img src="images/demo.gif" alt="Demo"></p>
+
+<pre><code>$ screpl http://example.com --require examples/plugin.js
+
+  request loaded with 200
+  use the variable `$` to access the result
+
+&gt; $('body').html()
+'\n&lt;div&gt;\n    &lt;h1&gt;Example Domain&lt;/h1&gt;\n    &lt;p&gt;This domain is established to
+be used for illustrative examples in documents. You may use this\n
+domain in examples without prior coordination or asking for permission.
+&lt;/p&gt;\n    &lt;p&gt;&lt;a href="http://www.iana.org/domains/example"&gt;More
+information...&lt;/a&gt;&lt;/p&gt;\n&lt;/div&gt;\n'
+&gt;
+</code></pre>
+
+<h1>
+<a name="plugins" class="anchor" href="#plugins"><span class="octicon octicon-link"></span></a>Plugins</h1>
+
+<p>Check out the plugin example in the examples directory. Require plugins using
+the <code>--require</code> option.</p>
+
+<pre><code>$ screpl http://example.com --require examples/plugin.js
+
+  request loaded with 200
+  use the variable `$` to access the result
+
+&gt; getText()
+&gt; links.text()
+</code></pre>
+
+<p><strong>Variables and functions exposed through plugins will autocomplete.</strong></p>
+
+<h1>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h1>
+
+<p>Copyright (c) 2014, Matt Hernandez <a href="mailto:matt@modulus.io">matt@modulus.io</a></p>
+
+<p>Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
