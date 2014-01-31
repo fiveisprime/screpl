@@ -3,9 +3,11 @@ SCREPL
 
 A pluggable command line scraper with REPL support.
 
-[![NPM](https://nodei.co/npm/screpl.png)](https://nodei.co/npm/screpl/)
+[![npm install -g screpl](https://nodei.co/npm/screpl.png)](https://nodei.co/npm/screpl/)
 
 # Usage
+
+Pass a URL to SCREPL then use the `$` variable as a jQuery object.
 
     Usage: screpl <url>
 
@@ -14,8 +16,6 @@ A pluggable command line scraper with REPL support.
       -h, --help              output usage information
       -V, --version           output the version number
       -r, --require <module>  require a plugin module
-
-Pass a URL to SCREPL then use the `$` variable as a JQuery object.
 
 ![Demo](https://dl.dropboxusercontent.com/u/48325037/screpl-demo.gif)
 
