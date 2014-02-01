@@ -25,7 +25,7 @@ Options:
 
 Check out the plugin example in the examples directory.
 
-Plugins are node modules that expose a function that accepts the REPL context.
+Plugins are node modules that expose a function which accepts the REPL context.
 Attach variables and functions to the context to make them accessible at
 run-time.
 

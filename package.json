@@ -1,6 +1,6 @@
 {
   "name": "screpl",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A pluggable command line scraper with REPL support.",
   "bin": {
     "screpl": "./bin/screpl"
@@ -17,14 +17,16 @@
     "command",
     "line",
     "scraper",
-    "scrape"
+    "scrape",
+    "repl",
+    "jquery"
   ],
   "author": "Matt Hernandez <matt@modulus.io>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/fiveisprime/screpl/issues"
   },
-  "homepage": "https://github.com/fiveisprime/screpl",
+  "homepage": "http://fiveisprime.github.io/screpl/",
   "dependencies": {
     "commander": "~2.1.0",
     "request": "~2.33.0",
