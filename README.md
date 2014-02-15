@@ -1,9 +1,7 @@
-SCREPL
+SCREPL [![NPM version](https://badge.fury.io/js/screpl.png)](http://badge.fury.io/js/screpl)
 ======
 
 A pluggable command line based scraper with REPL support.
-
-[![npm install -g screpl](https://nodei.co/npm/screpl.png)](https://nodei.co/npm/screpl/)
 
 # Usage
 
