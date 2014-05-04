@@ -1,4 +1,4 @@
-SCREPL [![NPM version](https://badge.fury.io/js/screpl.svg)](http://badge.fury.io/js/screpl)
+SCREPL [![Build Status](https://travis-ci.org/fiveisprime/screpl.svg?branch=master)](https://travis-ci.org/fiveisprime/screpl) [![NPM version](https://badge.fury.io/js/screpl.svg)](http://badge.fury.io/js/screpl)
 ======
 
 A pluggable command line based scraper with REPL support.
