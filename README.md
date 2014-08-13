@@ -3,6 +3,10 @@ SCREPL [![Build Status](https://travis-ci.org/fiveisprime/screpl.svg?branch=mast
 
 A pluggable command line based scraper with REPL support.
 
+# Installation
+```
+> npm install screpl -g 
+```
 # Usage
 
 Pass a URL to SCREPL then use the `$` variable as a jQuery object.
