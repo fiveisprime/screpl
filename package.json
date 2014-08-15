@@ -1,6 +1,6 @@
 {
   "name": "screpl",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A pluggable command line scraper with REPL support.",
   "bin": {
     "screpl": "./bin/screpl"
