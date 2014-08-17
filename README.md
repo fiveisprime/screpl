@@ -63,6 +63,14 @@ $ screpl http://example.com --require plugin.js
 '\nWelcome to exmaple.com.\nChances...'
 ```
 
+### Plugins Already Available 
+
+```
+writeFile($("body").html(), 'index.html')
+postHttp($("body").html(), 'http://yourserver.com')
+
+```
+
 **Variables and functions exposed through plugins will autocomplete.**
 
 # License
