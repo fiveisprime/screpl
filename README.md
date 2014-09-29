@@ -21,8 +21,6 @@ Options:
   -r, --require <module>  require a plugin module
 ```
 
-![Demo](https://dl.dropboxusercontent.com/u/48325037/screpl-demo.gif)
-
 # Plugins
 
 Check out the plugin example in the examples directory.
